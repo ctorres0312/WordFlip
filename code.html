@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
   <head>
-    <title>App Name: A Coding Project by Christian Torres</title>
+    <title>WordFlip: A Coding Project by Christian Torres</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -48,7 +48,7 @@
             src="img/CT_logo_white.png"
             width="50"
             class="d-inline-block"
-          />APP NAME</a
+          />WordFlip</a
         >
         <button
           class="navbar-toggler"
@@ -75,7 +75,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" target="_blank" href="#">Git Repo</a>
+              <a class="nav-link" target="_blank" href="https://github.com/ctorres0312/WordFlip">Git Repo</a>
             </li>
             <li class="nav-item">
               <a
@@ -93,22 +93,62 @@
     <!-- ==== Main Section ==== -->
     <main class="flex-shrink-0">
       <div class="container py-5 px-5 mt-5">
-        <h2 class="border-1 border-bottom border-dark">The Code for App Name.</h2>
+        <h2 class="border-1 border-bottom border-dark">The Code for WordFlip.</h2>
         <div class="row row-cols-1 row-cols-lg-2">
           <div class="col-lg-8">
             <pre class="line-numbers"><code class="language-javascript">
-              //Call Hello World
-              function helloWorld() {
-                alert("Hello World");
+              //Get the String from User Input
+              //Controller function
+              function getValue(){
+              
+                  document.getElementById("alert").classList.add("invisible");
+              
+                  let userString = document.getElementById("userString").value;
+              
+                  let revString = reverseString(userString);
+              
+                  displayString(revString);
+              }
+              
+              //Reverse the string
+              //Logic Function
+              function reverseString(userString){
+                  let revString = [];
+              
+                  //reverse a string user a for loop
+                  for (let i = userString.length - 1; i >= 0; i--) {
+                      revString += userString[i];
+                  }
+                  
+                  return revString;
+              }
+              
+              //Display the reversed string to the user
+              //View Function
+              function displayString(revstring){
+              
+                  //write to the page
+                  document.getElementById("msg").innerHTML = `Your string reversed is: ${revstring}`;
+                  //show the alert box
+                  document.getElementById("alert").classList.remove("invisible");
               }
               </code>
             </pre>
           </div>
           <div class="col-lg-4">
-            <p>The Code is structed in one function.</p>
-            <h5>Hello World</h5>
-            <p>Hello World is a function that displays an alert with a message of "Hello World"</p>
-          </div>
+            <p>The Code is constructed in three functions.</p>
+            <p>
+              *some code may not show via prism. See source to see complete
+              code.
+            </p>
+            <h5>getValues</h5>
+            <p>
+              The `getValue` function hides an alert element, retrieves a string from the input element with ID "userString," reverses the string using `reverseString`, and then displays the reversed string using `displayString`.
+            </p>
+            <h5>reverseString</h5>
+            <p>The `reverseString` function reverses a given string by iterating through it backwards and appending each character to a new string, then returns the reversed string.</p>
+            <h5>displayString</h5>
+            <p>The `displayString` function sets the inner HTML of the element with ID "msg" to display the reversed string, and then makes the alert box visible by removing the "invisible" class from the element with ID "alert".</p>
         </div>
       </div>
     </main>
